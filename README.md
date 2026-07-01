@@ -39,7 +39,9 @@ To run this project locally or in production, you must have:
 
 2. **Start Database and Redis**
    ```bash
+   cd docker
    docker-compose up -d
+   cd ..
    ```
 
 3. **Install Dependencies**
