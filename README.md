@@ -72,7 +72,7 @@ To run this project locally or in production, you must have:
    # From the root directory
    npm run dev
    ```
-   The client will run on `http://localhost:5173` and the server on `http://localhost:5000`.
+   The client will run on `http://localhost:5173` and the server on `http://localhost:5001`.
 
 ## Production Deployment
 
@@ -87,7 +87,7 @@ The application will be served via Nginx on port `3000`.
 
 | Variable | Description | Default |
 |---|---|---|
-| `PORT` | Backend API Port | `5000` |
+| `PORT` | Backend API Port | `5001` |
 | `NODE_ENV` | Environment (`development` or `production`) | `development` |
 | `MONGODB_URI` | MongoDB connection string | `mongodb://localhost:27017/codearena` |
 | `REDIS_HOST` | Redis host | `localhost` |
