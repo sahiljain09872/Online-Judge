@@ -1,0 +1,40 @@
+version: "3.8"
+services:
+  client:
+    build: ./client
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+
+  server:
+    build: ./server
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
+      - redis
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://mongodb:27017/codearena
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - JWT_SECRET=production_secret_key_change_me
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock  # For Docker-in-Docker execution
+
+  mongodb:
+    image: mongo:7
+    volumes:
+      - mongo-data:/data/db
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+
+volumes:
+  mongo-data:
+  redis-data:

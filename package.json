@@ -1,0 +1,14 @@
+{
+  "name": "codearena",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
+    "lint": "cd server && npm run lint && cd ../client && npm run lint"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.0"
+  }
+}
